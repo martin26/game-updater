@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>images\Icon.ico</ApplicationIcon>
+    <AssemblyName>AmongUsAuto</AssemblyName>
+    <RootNamespace>AmongUsAuto</RootNamespace>
+    <Authors>CrackHub</Authors>
+    <Company>CrackHub</Company>
+    <Product>Among Us Auto Updater</Product>
+    <Description>A tool that Automatically updates the Game Among Us</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\Icon.ico" />
+    <None Remove="images\LauncherBackground.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\Icon.ico" />
+    <Resource Include="images\LauncherBackground.png" />
+  </ItemGroup>
+  
+</Project>

@@ -18,7 +18,7 @@ namespace GameLauncher
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>f
+    /// </summary>
     public partial class MainWindow : Window
     {
         private string rootPath;
@@ -35,7 +35,6 @@ namespace GameLauncher
                 _status = value;
                 switch (_status)
                 {
-                    //change the messages here if you want :)
                     case LauncherStatus.ready:
                         PlayButton.Content = "Play";
                         break;
@@ -57,12 +56,11 @@ namespace GameLauncher
         public MainWindow()
         {
             InitializeComponent();
-
-            //change stuff here!
+            //change names of zip file, exe and directory here:
             rootPath = Directory.GetCurrentDirectory();
             versionFile = Path.Combine(rootPath, "Version.txt");
-            gameZip = Path.Combine(rootPath, "//declare name of zip file here");
-            gameExe = Path.Combine(rootPath, "//game folder here", "//game exe here");
+            gameZip = Path.Combine(rootPath, "Among_Us.zip");
+            gameExe = Path.Combine(rootPath, "Among_Us", "Among Us.exe");
         }
 
         private void CheckForUpdates()
@@ -74,9 +72,9 @@ namespace GameLauncher
 
                 try
                 {
-                    //change stuff here!
+                    //add your server:
                     WebClient webClient = new WebClient();
-                    Version onlineVersion = new Version(webClient.DownloadString("put the url of the version.txt on your server here."));
+                    Version onlineVersion = new Version(webClient.DownloadString("https://my.server/Version.txt"));
 
                     if (onlineVersion.IsDifferentThan(localVersion))
                     {
@@ -110,13 +108,13 @@ namespace GameLauncher
                 }
                 else
                 {
-                    //change stuff here!
+                    //add your server for game files twice (yes)
                     Status = LauncherStatus.downloadingGame;
-                    _onlineVersion = new Version(webClient.DownloadString("put the url of the game .zip file on your server here"));
+                    _onlineVersion = new Version(webClient.DownloadString("https://my.server/Game.zip"));
                 }
-                //change stuff here!
+
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);
-                webClient.DownloadFileAsync(new Uri("put the url of the game .zip file on your server here (yes, again.)"), gameZip, _onlineVersion);
+                webClient.DownloadFileAsync(new Uri("https://my.server/Game.zip"), gameZip, _onlineVersion);
             }
             catch (Exception ex)
             {
@@ -154,9 +152,9 @@ namespace GameLauncher
         {
             if (File.Exists(gameExe) && Status == LauncherStatus.ready)
             {
-                //change stuff here!
+                //change to your game folder
                 ProcessStartInfo startInfo = new ProcessStartInfo(gameExe);
-                startInfo.WorkingDirectory = Path.Combine(rootPath, "//put name of game folder here.");
+                startInfo.WorkingDirectory = Path.Combine(rootPath, "Game_Folder");
                 Process.Start(startInfo);
 
                 Close();
@@ -169,7 +167,7 @@ namespace GameLauncher
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //Remove the message box/edit it to fit your needs ^^^
+            //remove or change to your name & info :)
             string title = "Among Us Auto Updater By CrackHub";
             MessageBox.Show("This is an Among Us Auto Updater Tool Made by CrackHub. The Emulator Used Is Made By Mr_Goldberg On cs.rin.ru. This Will Always Keep The Game Up To Date And Ready For Online Play.", title);
         }

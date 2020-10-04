@@ -4,7 +4,7 @@ This is a simple WPF Windows application made to update games without steam [I o
 
 ## How to use it
 
-To apply this code to the game of your choice you need only 1 thing: A server. On the server you need to host a .zip file of the game files and a "Version.txt" file, make sure the version.txt file contains "0.0.0" - meaning the first version. I have marked all parts that you need to change in the code with "//change stuff here!", simply fill in what it says. Also open the "Images" folder and change the images according to your game.
+To apply this code to the game of your choice you need only 1 thing: A server. On the server you need to host a .zip file of the game files and a "Version.txt" file, make sure the version.txt file contains "0.0.0" - meaning the first version. I have marked all parts that you need to change in the code, simply fill in what it says. Also open the "Images" folder and change the images according to your game.
 
 ## How to update the game
 
